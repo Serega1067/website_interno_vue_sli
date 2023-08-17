@@ -7,6 +7,7 @@
   <HomeMain />
   <BlogMain />
   <BlogDetailsMain />
+  <Project />
   <Footer />
 </template>
 
@@ -17,6 +18,7 @@ import Header from './components/Header.vue';
 import HomeMain from './components/HomeMain.vue';
 import BlogMain from './components/BlogMain.vue';
 import BlogDetailsMain from './components/BlogDetailsMain.vue';
+import Project from './components/Project.vue';
 import Footer from './components/Footer.vue';
 
 export default {
@@ -28,6 +30,7 @@ export default {
     HomeMain,
     BlogMain,
     BlogDetailsMain,
+    Project,
     Footer
   }
 }

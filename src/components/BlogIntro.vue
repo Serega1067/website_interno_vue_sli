@@ -1,32 +1,37 @@
 <template>
     <section class="intro">
-        <div class="intro__title">
-            <h2 class="intro__heading">Articles & News</h2>
-            <div class="intro__subhead-box">
-                <a href="../index.html" class="intro__subhead-box-item">Home</a>
-                <a href="blog.html" class="intro__subhead-box-item">Blog</a>
-            </div>
-        </div>
+        <!-- <div class="intro__title"> -->
+        <!-- <h2 class="intro__heading">Articles & News</h2> -->
+        <!-- <div class="intro__subhead-box"> -->
+        <!-- <a href="../index.html" class="intro__subhead-box-item">Home</a> -->
+        <!-- <a href="blog.html" class="intro__subhead-box-item">Blog</a> -->
+        <IntroText class="intro__title" :text="text" v-for="text in blogTexts" />
+        <!-- </div> -->
     </section>
 </template>
 
 <script>
+import IntroText from './IntroText.vue';
+
 export default {
     name: 'WebsiteInternoVueSliBlogIntro',
-
     data() {
         return {
-
+            blogTexts: [
+                {
+                    id: "blogText",
+                    title: "Articles & News",
+                    subheadOne: "Home",
+                    subheadTwo: "Blog",
+                    routerlink: "/blog",
+                },
+            ],
         };
     },
-
     mounted() {
-
     },
-
-    methods: {
-
-    },
+    methods: {},
+    components: { IntroText }
 };
 </script>
 
@@ -51,34 +56,34 @@ export default {
         background-color: #fff;
     }
 
-    &__heading {
-        color: #292f36;
-        font-family: DM Serif Display;
-        font-size: 50px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 125%;
-    }
+    // &__heading {
+    //     color: #292f36;
+    //     font-family: DM Serif Display;
+    //     font-size: 50px;
+    //     font-style: normal;
+    //     font-weight: 400;
+    //     line-height: 125%;
+    // }
 
-    &__subhead-box {
-        display: inline-flex;
-        flex-direction: row;
+    // &__subhead-box {
+    //     display: inline-flex;
+    //     flex-direction: row;
 
-        &-item {
-            color: #4d5053;
-            font-family: Jost;
-            font-size: 22px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 150%;
-            letter-spacing: 0.22px;
-            text-align: center;
+    //     &-item {
+    //         color: #4d5053;
+    //         font-family: Jost;
+    //         font-size: 22px;
+    //         font-style: normal;
+    //         font-weight: 400;
+    //         line-height: 150%;
+    //         letter-spacing: 0.22px;
+    //         text-align: center;
 
-            &:first-child::after {
-                content: "/\00a0";
-                padding-left: 5px;
-            }
-        }
-    }
+    //         &:first-child::after {
+    //             content: "/\00a0";
+    //             padding-left: 5px;
+    //         }
+    //     }
+    // }
 }
 </style>
