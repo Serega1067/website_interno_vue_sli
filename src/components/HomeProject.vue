@@ -9,7 +9,9 @@
             at its layouts points.
         </p>
         <div class="project__items">
-            <div class="project__item">
+            <ProjectCard v-for="item in projectCardData" :key="item.id" :text="item" :sizeButton="70" />
+            <!-- <HomeProjectCard /> -->
+            <!-- <div class="project__item">
                 <img src="../assets/Photo1.svg" alt="photo" class="project__item_img">
                 <div class="project__item_content">
                     <div class="project__item_content-text">
@@ -64,28 +66,70 @@
                     </div>
                     <img src="../assets/Elem.svg" alt="photo" class="project__item_elem">
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 </template>
 
 <script>
-export default {
-    name: 'WebsiteInternoVueSliHomeProject',
+// import HomeProjectCard from './HomeProjectCard.vue';
+import ProjectCard from '@/components/ProjectCard.vue';
 
+export default {
+    name: 'HomeProject',
+    mounted() {
+    },
+    methods: {},
+    components: {
+        // HomeProjectCard,
+        ProjectCard,
+    },
     data() {
         return {
-
+            projectCardData: [
+                {
+                    id: "product-card1",
+                    src: require("../assets/Photo1.svg"),
+                    alt: "image",
+                    title: "Modern Kitchan",
+                    subtitleLeft: "Decor",
+                    subtitleLine: " / ",
+                    subtitleRight: "Artchitecture",
+                },
+                {
+                    id: "product-card2",
+                    card_id: "bedroom",
+                    src: require("../assets/Photo2.svg"),
+                    alt: "image",
+                    title: "Modern Kitchan",
+                    subtitleLeft: "Decor",
+                    subtitleLine: " / ",
+                    subtitleRight: "Artchitecture",
+                },
+                {
+                    id: "product-card3",
+                    card_id: "bedroom",
+                    src: require("../assets/Photo3.svg"),
+                    alt: "image",
+                    title: "Modern Kitchan",
+                    subtitleLeft: "Decor",
+                    subtitleLine: " / ",
+                    subtitleRight: "Artchitecture",
+                },
+                {
+                    id: "product-card4",
+                    card_id: "bedroom",
+                    src: require("../assets/Photo4.svg"),
+                    alt: "image",
+                    title: "Modern Kitchan",
+                    subtitleLeft: "Decor",
+                    subtitleLine: " / ",
+                    subtitleRight: "Artchitecture",
+                },
+            ]
         };
     },
 
-    mounted() {
-
-    },
-
-    methods: {
-
-    },
 };
 </script>
 
@@ -131,38 +175,38 @@ export default {
         margin-bottom: 96px;
     }
 
-    &__item {
-        display: grid;
-        gap: 24px;
+    // &__item {
+    //     display: grid;
+    //     gap: 24px;
 
-        &_content {
-            display: flex;
-            gap: 260px;
+    //     &_content {
+    //         display: flex;
+    //         gap: 260px;
 
-            &-title {
-                color: #292F36;
-                font-family: DM Serif Display;
-                font-size: 25px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 125%;
-                /* 31.25px */
-                letter-spacing: 0.5px;
-            }
+    //         &-title {
+    //             color: #292F36;
+    //             font-family: DM Serif Display;
+    //             font-size: 25px;
+    //             font-style: normal;
+    //             font-weight: 400;
+    //             line-height: 125%;
+    //             /* 31.25px */
+    //             letter-spacing: 0.5px;
+    //         }
 
-            &-subtitle {
-                width: 217px;
-                height: 27px;
-                color: #4D5053;
-                font-family: Jost;
-                font-size: 22px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 150%;
-                /* 33px */
-                letter-spacing: 0.22px;
-            }
-        }
-    }
+    //         &-subtitle {
+    //             width: 217px;
+    //             height: 27px;
+    //             color: #4D5053;
+    //             font-family: Jost;
+    //             font-size: 22px;
+    //             font-style: normal;
+    //             font-weight: 400;
+    //             line-height: 150%;
+    //             /* 33px */
+    //             letter-spacing: 0.22px;
+    //         }
+    //     }
+    // }
 }
 </style>

@@ -34,7 +34,7 @@
 
 <script>
 export default {
-    name: 'WebsiteInternoVueSliBlog',
+    name: 'Blog',
 
     data() {
         return {
@@ -44,7 +44,8 @@ export default {
                     src: require('../assets/Image_blog1.svg'),
                     alt: 'interior',
                     title: 'Let’s Get Solution For Building Construction Work',
-                    date: '26 December,2022', button: 'Kitchan Design'
+                    date: '26 December,2022',
+                    button: 'Kitchan Design'
                 },
                 {
                     id: 2,
@@ -197,12 +198,6 @@ export default {
                 /* 24px */
                 letter-spacing: 0.16px;
                 text-transform: capitalize;
-            }
-
-            &-elem {
-                width: 52px;
-                height: 52px;
-                flex-shrink: 0;
             }
         }
 

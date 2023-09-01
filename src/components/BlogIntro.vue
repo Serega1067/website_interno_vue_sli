@@ -5,25 +5,25 @@
         <!-- <div class="intro__subhead-box"> -->
         <!-- <a href="../index.html" class="intro__subhead-box-item">Home</a> -->
         <!-- <a href="blog.html" class="intro__subhead-box-item">Blog</a> -->
-        <IntroText class="intro__title" :text="text" v-for="text in blogTexts" />
+        <IntroText class="intro__title" :text="item" v-for="item in blogIntro" />
         <!-- </div> -->
     </section>
 </template>
 
 <script>
-import IntroText from './IntroText.vue';
+import IntroText from '@/components/IntroText.vue';
 
 export default {
-    name: 'WebsiteInternoVueSliBlogIntro',
+    name: 'BlogIntro',
     data() {
         return {
-            blogTexts: [
+            blogIntro: [
                 {
                     id: "blogText",
                     title: "Articles & News",
-                    subheadOne: "Home",
-                    subheadTwo: "Blog",
-                    routerlink: "/blog",
+                    subheadLeft: "Home",
+                    subheadLine: " / ",
+                    subheadRight: "Blog",
                 },
             ],
         };
@@ -31,7 +31,9 @@ export default {
     mounted() {
     },
     methods: {},
-    components: { IntroText }
+    components: {
+        IntroText,
+    }
 };
 </script>
 

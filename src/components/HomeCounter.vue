@@ -33,7 +33,7 @@
                     95
                 </p>
                 <p class="counter__content_item-text">
-                    Happy CUstomers
+                    Happy Customers
                 </p>
             </div>
             <!-- <div class="counter__content_line" style="border-left: 3px solid red; padding-left:10px"></div> -->

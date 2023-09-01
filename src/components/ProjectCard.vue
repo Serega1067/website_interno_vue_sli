@@ -1,45 +1,109 @@
 <template>
-    <div class="project__card" :data-id="project.dataid">
-        <img :src="project.src" :alt="project.alt" class="projects__card-image" :class="project.class" />
-        <div class="projects__card-content">
-            <div class="projects__card-textbox" :class="project.classbottom">
-                <h3 class="projects__card-title">{{ project.title }}</h3>
-                <ul class="projects__card-list">
-                    <li class="projects__card-list-item projects__card-list-item_slash">
-                        {{ project.subject }}
-                    </li>
-                    <li class="projects__card-list-item">{{ project.field }}</li>
-                </ul>
+    <div class="project-card">
+        <img :src="text.src" :alt="text.alt">
+        <div class="project-card__content">
+            <div class="project-card__content_text">
+                <!-- <IntroText v-for="item in text" :key="item.id" :text="item" /> -->
+                <p class="project-card__content_text-title">
+                    <!-- Minimal Bedroom -->
+                    {{ text.title }}
+                </p>
+                <p class="project-card__content_text-subtitle">
+                    <!-- Decor / Artchitecture -->
+                    {{ text.subtitleLeft }}
+                    {{ text.subtitleLine }}
+                    {{ text.subtitleRight }}
+                </p>
             </div>
-
-
+            <div v-if="sizeButton === 70" class="project-card__content_button">
+                <RoundButton70x70 />
+            </div>
+            <div v-else class="project-card__content_button">
+                <RoundButton52x52 />
+            </div>
         </div>
-        <slot class="star-image" />
-
     </div>
 </template>
 
 <script>
+import IntroText from './IntroText.vue';
+// import RoundButton from './RoundButton.vue';
+import RoundButton52x52 from './RoundButton52x52.vue';
+import RoundButton70x70 from './RoundButton70x70.vue';
 export default {
-    name: 'WebsiteInternoVueSliProjectCard',
+    name: 'ProjectCard',
+    components: { IntroText, RoundButton52x52, RoundButton70x70 },
     props: {
-        project: Object,
+        text: Object,
+        sizeButton: Number,
     },
 
     data() {
         return {
-
+            // projectIntro: [
+            //     {
+            //         id: "projectText",
+            //         title: "Our Project",
+            //         subheadLeft: "Home",
+            //         subheadLine: " / ",
+            //         subheadRight: "Project"
+            //     }
+            // ],
         };
     },
-
-    mounted() {
-
-    },
-
-    methods: {
-
-    },
-};
+}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.project-card {
+    // display: grid;
+    // gap: 24px;
+    display: flex;
+    // width: 585px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+
+    &__content {
+        display: flex;
+        // gap: 298px;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+
+        &_text {
+            width: 217px;
+
+            &-title {
+                color: #292F36;
+                font-family: DM Serif Display;
+                font-size: 25px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 125%;
+                /* 31.25px */
+                letter-spacing: 0.5px;
+            }
+
+            &-subtitle {
+                color: #4D5053;
+                font-family: Jost;
+                font-size: 22px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%;
+                /* 33px */
+                letter-spacing: 0.22px;
+            }
+        }
+    }
+
+    // &:hover {
+    //     background: #f4f0ec;
+    // }
+
+    // &:hover circle {
+    //     fill: #FFF;
+    // }
+}
+</style>

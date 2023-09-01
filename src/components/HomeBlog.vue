@@ -8,7 +8,8 @@
             lookings at its layouts the points of using.
         </p>
         <div class="blog__items">
-            <div class="blog__item">
+            <BlogCard v-for="item in homeBlogData" :key="item.id" :text="item" />
+            <!-- <div class="blog__item">
                 <img src="../assets/Image_blog1.svg" alt="photo" class="blog__item_img">
                 <a href="#" class="blog__item_tag">Kitchan Design</a>
                 <p class="blog__item_text">
@@ -60,19 +61,18 @@
                         </svg>
                     </a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 </template>
 
 <script>
+import BlogCard from '@/components/BlogCard.vue';
 export default {
-    name: 'WebsiteInternoVueSliHomeBlog',
+    name: 'HomeBlog',
 
-    data() {
-        return {
-
-        };
+    components: {
+        BlogCard,
     },
 
     mounted() {
@@ -81,6 +81,40 @@ export default {
 
     methods: {
 
+    },
+
+    data() {
+        return {
+            homeBlogData: [
+                {
+                    id: 1,
+                    src: require("../assets/Image_blog1.svg"),
+                    alt: 'photo',
+                    class: 'blog__item_img',
+                    tag: 'Kitchan Design',
+                    title: 'Let’s Get Solution For Building Construction Work',
+                    date: '26 December,2022',
+                },
+                {
+                    id: 2,
+                    src: require("../assets/Image_blog2.svg"),
+                    alt: 'photo',
+                    class: 'blog__item_img',
+                    tag: 'Living Design',
+                    title: 'Low Cost Latest Invented Interior Designing Ideas.',
+                    date: '22 December,2022',
+                },
+                {
+                    id: 3,
+                    src: require("../assets/Image_blog3.svg"),
+                    alt: 'photo',
+                    class: 'blog__item_img',
+                    tag: 'Interior Design',
+                    title: 'Best For Any Office & Business Interior Solution',
+                    date: '25 December,2022 ',
+                },
+            ]
+        };
     },
 };
 </script>
@@ -123,93 +157,94 @@ export default {
         flex-wrap: wrap;
     }
 
-    &__item {
-        position: relative;
-        padding: 20px;
-        border-radius: 62px;
-        border: 1px solid #e7e7e7;
-        box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 0.25);
-        transition: 0.3s;
+    // &__item {
+    //     position: relative;
+    //     padding: 20px;
+    //     border-radius: 62px;
+    //     border: 1px solid #e7e7e7;
+    //     box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 0.25);
+    //     transition: 0.3s;
 
-        &_img {
-            margin-bottom: 21px;
-        }
+    //     &_img {
+    //         margin-bottom: 21px;
+    //     }
 
-        &_tag {
-            position: absolute;
-            width: 124px;
-            top: 247px;
-            left: 40px;
-            color: #4d5053;
-            font-family: Jost;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 150%;
-            letter-spacing: 0.16px;
-            background-color: #fff;
-            border-radius: 8px 8px 8px 0px;
-            padding: 7px 9px 10px 11px;
-            transition: 0.3s;
-        }
+    //     &_tag {
+    //         position: absolute;
+    //         width: 124px;
+    //         top: 247px;
+    //         left: 40px;
+    //         color: #4d5053;
+    //         font-family: Jost;
+    //         font-size: 16px;
+    //         font-style: normal;
+    //         font-weight: 400;
+    //         line-height: 150%;
+    //         letter-spacing: 0.16px;
+    //         background-color: #fff;
+    //         border-radius: 8px 8px 8px 0px;
+    //         padding: 7px 9px 10px 11px;
+    //         transition: 0.3s;
+    //     }
 
-        &_text {
-            display: flex;
-            width: 305px;
-            height: 70px;
-            flex-direction: column;
-            justify-content: center;
+    //     &_text {
+    //         display: flex;
+    //         width: 305px;
+    //         height: 70px;
+    //         flex-direction: column;
+    //         justify-content: center;
 
-            color: #292F36;
-            font-family: DM Serif Display;
-            font-size: 25px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 125%;
-            /* 31.25px */
-            letter-spacing: 0.5px;
-            margin-bottom: 30px;
-        }
+    //         color: #292F36;
+    //         font-family: DM Serif Display;
+    //         font-size: 25px;
+    //         font-style: normal;
+    //         font-weight: 400;
+    //         line-height: 125%;
+    //         /* 31.25px */
+    //         letter-spacing: 0.5px;
+    //         margin-bottom: 30px;
+    //     }
 
-        &_content {
-            display: flex;
-            width: 340px;
-            align-items: center;
-            gap: 65px;
+    //     &_content {
+    //         display: flex;
+    //         width: 340px;
+    //         align-items: center;
+    //         gap: 65px;
 
-            &-date {
-                display: flex;
-                width: 223px;
-                height: 33px;
-                flex-direction: column;
-                justify-content: center;
-                flex-shrink: 0;
+    //         &-date {
+    //             display: flex;
+    //             width: 223px;
+    //             height: 33px;
+    //             flex-direction: column;
+    //             justify-content: center;
+    //             flex-shrink: 0;
 
-                color: #4D5053;
-                font-family: Jost;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 150%;
-                /* 24px */
-                letter-spacing: 0.16px;
-                text-transform: capitalize;
-            }
+    //             color: #4D5053;
+    //             font-family: Jost;
+    //             font-size: 16px;
+    //             font-style: normal;
+    //             font-weight: 400;
+    //             line-height: 150%;
+    //             /* 24px */
+    //             letter-spacing: 0.16px;
+    //             text-transform: capitalize;
+    //         }
 
-            // &-elem {
-            //     width: 52px;
-            //     height: 52px;
-            //     flex-shrink: 0;
-            // }
-        }
+    // &-elem {
+    //     width: 52px;
+    //     height: 52px;
+    //     flex-shrink: 0;
+    // }
+    //     }
 
-        &:hover {
-            background: #f4f0ec;
-        }
+    // &:hover {
+    //     background: #f4f0ec;
+    // }
 
-        &:hover circle {
-            fill: #fff;
-        }
-    }
+    // &:hover circle {
+    //     fill: #fff;
+    // }
+
+    // }
 }
 </style>

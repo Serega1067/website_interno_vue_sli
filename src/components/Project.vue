@@ -1,258 +1,271 @@
 <template>
     <main class="project">
-        <!-- <section class="project__intro">
-            <IntroText class="project__intro_text" :text="text" v-for="text in introTexts" />
-
-        </section> -->
         <section class="intro">
-            <!-- <div class="intro__title"> -->
-            <IntroText class="intro__title" :text="text" v-for="text in introTexts" />
-            <!-- </div> -->
+            <IntroText class="intro__title" v-for="item in projectIntro" :text="item" :key="item.id" />
         </section>
         <section class="project__content center">
-            <div class="buttons__box">
-                <Button class="button" @change="activeButton" @click="projectsFilter" v-for="button in buttons"
-                    :key="button.id" :id="button.id">
-                    {{ button.text }}</Button>
+            <div class="project__content_buttons">
+                <div class="project__buttons">
+                    <Button class="project__buttons_item" v-for="item in buttons" :text="item" :key="item.id"
+                        @click="projectActive" />
+                </div>
+            </div>
+            <div class="project__cards">
+                <ProjectCard v-for="item in projectCards" :key="item.id" :text="item" :size-button="70" />
+            </div>
+            <div class="pages">
+                <!-- <div class="pagination__left">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="53" height="52" viewBox="0 0 53 52" fill="none"
+                        transform="rotate(180)">
+                        <circle cx="26.5" cy="26" r="25.5" stroke="#CDA274" />
+                        <path d="M23.5571 32L29.5 25.3143L23.5571 18.6286" stroke="#292F36" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div> -->
+                <Pagination class="pagination" :list="paginationData" />
+                <!-- <div class="pagination__right">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="53" height="52" viewBox="0 0 53 52" fill="none">
+                        <circle cx="26.5" cy="26" r="25.5" stroke="#CDA274" />
+                        <path d="M23.5571 32L29.5 25.3143L23.5571 18.6286" stroke="#292F36" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div> -->
             </div>
         </section>
-        <article class="project-cards-box">
-            <ProjectCard class="project-card" :project="project" :data-id="project.dataid" v-for="project in projectCards"
-                :key="project.id" :src="project.src" :class="project.class" @click="addToFavorites"></ProjectCard>
-        </article>
-
     </main>
 </template>
 
 <script>
-// import BlogIntro from '@/components/BlogIntro.vue';
+
 import IntroText from '@/components/IntroText.vue';
 import Button from '@/components/Button.vue';
 import ProjectCard from '@/components/ProjectCard.vue';
+import Pagination from '@/components/Pagination.vue';
+
 
 export default {
-    name: 'WebsiteInternoVueSliProject',
-    props: {},
+    name: 'Project',
+
     components: {
         IntroText,
         Button,
-        ProjectCard
+        ProjectCard,
+        Pagination
     },
+
     data() {
         return {
-            introTexts: [
+            projectIntro: [
                 {
-                    id: "introText",
+                    id: "projectText",
                     title: "Our Project",
-                    subheadOne: "Home",
-                    subheadTwo: "Project",
-                    routerlink: "/project-details",
+                    subheadLeft: "Home",
+                    subheadLine: " / ",
+                    subheadRight: "Project"
+                }
+            ],
+            paginationData: [
+                {
+                    id: "page1",
+                    number: "01",
+                },
+                {
+                    id: "page2",
+                    number: "02",
+                },
+                {
+                    id: "page3",
+                    number: "03",
                 },
             ],
+
             buttons: [
-                { id: "bathroom", text: "Bathroom" },
-                { id: "bedroom", text: "Bedroom" },
-                { id: "kitchen", text: "Kitchen" },
-                { id: "livingroom", text: "Living Area" },
+                {
+                    id: "bathroom",
+                    name: "Bathroom"
+                },
+                {
+                    id: "bedroom",
+                    name: "Bed Room"
+                },
+                {
+                    id: "kitchan",
+                    name: "Kitchan"
+                },
+                {
+                    id: "livingroom",
+                    name: "Living Area"
+                }
             ],
             projectCards: [
                 {
                     id: "product-card1",
-                    dataid: "bedroom",
+                    card_id: "bedroom",
                     src: require("../assets/project-card-1.png"),
-                    alt: "interio",
+                    alt: "image",
                     title: "Minimal Bedroom",
-                    subject: "Decor",
-                    field: "Architecture",
-                    class: "project-card-image-1",
-                    starid: "star1",
+                    subtitleLeft: "Decor",
+                    subtitleLine: " / ",
+                    subtitleRight: "Artchitecture",
+                    class: "project__card_image"
                 },
                 {
                     id: "product-card2",
-                    dataid: "bedroom",
+                    card_id: "bedroom",
                     src: require("../assets/project-card-2.png"),
-                    alt: "interio",
-                    title: "Classic Minimal Bedroom",
-                    subject: "Decor",
-                    field: "Architecture",
-                    class: "project-card-image-2",
-                    starid: "star2",
+                    alt: "image",
+                    title: "Minimal Bedroom",
+                    subtitleLeft: "Decor",
+                    subtitleLine: " / ",
+                    subtitleRight: "Artchitecture",
+                    class: "project__card_image"
                 },
                 {
                     id: "product-card3",
-                    dataid: "bedroom",
+                    card_id: "bedroom",
                     src: require("../assets/project-card-3.png"),
-                    alt: "interio",
-                    title: "Minimal Bedroom table",
-                    subject: "Decor",
-                    field: "Architecture",
-                    class: "project-card-image-3",
-                    starid: "star3",
+                    alt: "image",
+                    title: "Classic Minimal Bedroom",
+                    subtitleLeft: "Decor",
+                    subtitleLine: " / ",
+                    subtitleRight: "Artchitecture",
+                    class: "project__card_image"
                 },
                 {
                     id: "product-card4",
-                    dataid: "bedroom",
+                    card_id: "bedroom",
                     src: require("../assets/project-card-4.png"),
-                    alt: "interio",
-                    title: "Modern Medroom",
-                    subject: "Decor",
-                    field: "Architecture",
-                    class: "project-card-image-4",
-                    starid: "star4",
+                    alt: "image",
+                    title: "Modern Bedroom",
+                    subtitleLeft: "Decor",
+                    subtitleLine: " / ",
+                    subtitleRight: "Artchitecture",
+                    class: "project__card_image"
                 },
                 {
                     id: "product-card5",
-                    dataid: "bedroom",
+                    card_id: "bedroom",
                     src: require("../assets/project-card-5.png"),
-                    alt: "interio",
-                    title: "Minimal Bedroom",
-                    subject: "Decor",
-                    field: "Architecture",
-                    class: "project-card-image-5",
-                    starid: "star5",
+                    alt: "image",
+                    title: "Minimal Bedroom table",
+                    subtitleLeft: "Decor",
+                    subtitleLine: " / ",
+                    subtitleRight: "Artchitecture",
+                    class: "project__card_image"
                 },
                 {
                     id: "product-card6",
-                    dataid: "bedroom",
+                    card_id: "bedroom",
                     src: require("../assets/project-card-6.png"),
-                    alt: "interio",
-                    title: "Modern Bedroom",
-                    subject: "Decor",
-                    field: "Architecture",
-                    class: "project-card-image-6",
-                    starid: "star6",
+                    alt: "image",
+                    title: "System Table",
+                    subtitleLeft: "Decor",
+                    subtitleLine: " / ",
+                    subtitleRight: "Artchitecture",
+                    class: "project__card_image"
                 },
                 {
                     id: "product-card7",
-                    dataid: "bedroom",
+                    card_id: "bedroom",
                     src: require("../assets/project-card-7.png"),
-                    alt: "interio",
-                    title: "System Table",
-                    subject: "Decor",
-                    field: "Architecture",
-                    class: "project-card-image-7",
-                    starid: "star7",
+                    alt: "image",
+                    title: "Modern Medroom",
+                    subtitleLeft: "Decor",
+                    subtitleLine: " / ",
+                    subtitleRight: "Artchitecture",
+                    class: "project__card_image"
                 },
                 {
                     id: "product-card8",
-                    dataid: "bedroom",
+                    card_id: "bedroom",
                     src: require("../assets/project-card-8.png"),
-                    alt: "interio",
+                    alt: "image",
                     title: "Modern Bedroom",
-                    subject: "Decor",
-                    field: "Architecture",
-                    class: "project-card-image-8",
-                    starid: "star8",
+                    subtitleLeft: "Decor",
+                    subtitleLine: " / ",
+                    subtitleRight: "Artchitecture",
+                    class: "project__card_image"
                 },
             ],
-
         };
     },
-    mounted() {
-    },
+
     methods: {
+        projectActive(e) {
+            if (document.querySelector(".project__buttons_item-active") !== null) {
+                document.querySelector(".project__buttons_item-active").classList.remove("project__buttons_item-active");
+            }
+            e.target.classList.add("project__buttons_item-active");
 
-    },
-
-};
+        }
+    }
+}
 </script>
 
 <style lang="scss" scoped>
 .intro {
     margin-top: 45px;
-    background-image: url("../assets/project_intro-picture.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+    // background-image: url(../assets/project_intro-picture.png);
+    background: url(../assets/project_intro-picture.png), lightgray 50% / cover no-repeat;
+    // background-size: cover;
+    // background-repeat: no-repeat;
     display: flex;
     justify-content: center;
 
     &__title {
+        margin-top: 179px;
         display: flex;
+        width: 504px;
+        padding: 41px 125px;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 40px 78px;
-        width: 503px;
-        margin-top: 179px;
+        gap: 10px;
+
         border-radius: 37px 37px 0px 0px;
-        background-color: #fff;
+        background: #FFF;
     }
-
-    // &__heading {
-    //     color: #292f36;
-    //     font-family: DM Serif Display;
-    //     font-size: 50px;
-    //     font-style: normal;
-    //     font-weight: 400;
-    //     line-height: 125%;
-    // }
-
-    // &__subhead-box {
-    //     display: inline-flex;
-    //     flex-direction: row;
-
-    //     &-item {
-    //         color: #4d5053;
-    //         font-family: Jost;
-    //         font-size: 22px;
-    //         font-style: normal;
-    //         font-weight: 400;
-    //         line-height: 150%;
-    //         letter-spacing: 0.22px;
-    //         text-align: center;
-
-    //         &:first-child::after {
-    //             content: "/\00a0";
-    //             padding-left: 5px;
-    //         }
-    //     }
-    // }
-
 }
 
 .project__content {
-    padding-top: 200px;
-    padding-bottom: 200px;
+    margin-top: 200px;
+    display: grid;
+    gap: 61px;
+
+    &_buttons {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.project__buttons {
+    display: flex;
+    width: 880px;
+    // flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+
+    border-radius: 18px;
+    border: 1px solid #CDA274;
+}
+
+.project__cards {
+    // display: grid;
+    // grid-template-columns: repeat(2, 1fr);
+    // column-gap: 30px;
+    // row-gap: 36px;
+    height: 3260px;
     display: flex;
     flex-direction: column;
-    gap: 61px;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
-.buttons__box {
+.pages {
     display: flex;
-    flex-direction: row;
-    gap: 1px;
-    margin-left: 160px;
-    margin-right: 160px;
+    gap: 100px;
     justify-content: center;
-    border: 1px solid #cda274;
-    border-radius: 19px;
-}
-
-.button {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 219px;
-    height: 75px;
-    align-items: center;
-    padding: 26px 57px;
-    text-align: center;
-    font-family: Jost;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 125%;
-    letter-spacing: 1.36px;
-    color: #292f36;
-    background-color: white;
-    border-radius: 18px;
-    border: none;
-    transition: 0.3s;
-
-    &-active {
-        background-color: #cda274;
-        color: white;
-    }
+    margin-bottom: 200px;
 }
 </style>

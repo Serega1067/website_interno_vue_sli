@@ -17,6 +17,7 @@
                     <div class="blog__data-arrow-box blog-post__data-arrow-box">
                         <p class="blog__date">26 December,2022</p>
                         <a href="#" class="blog__arrowbox">
+                            <!-- <RoundButton52x52 /> -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="52" height="53" viewBox="0 0 52 53" fill="none">
                                 <circle cx="26" cy="26.5" r="26" fill="#F4F0EC" />
                                 <path d="M23.771 33.1855L29.7139 26.4998L23.771 19.8141" stroke="#292F36" stroke-width="2"
@@ -31,22 +32,17 @@
 </template>
 
 <script>
+// import RoundButton52x52 from '@/components/RoundButton52x52.vue';
+
 export default {
-    name: 'WebsiteInternoVueSliBlogPost',
-
+    name: 'BlogPost',
     data() {
-        return {
-
-        };
+        return {};
     },
-
     mounted() {
-
     },
-
-    methods: {
-
-    },
+    methods: {},
+    // components: { RoundButton52x52 }
 };
 </script>
 

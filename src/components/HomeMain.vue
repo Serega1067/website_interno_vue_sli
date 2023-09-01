@@ -12,9 +12,7 @@ import HomeCounter from './HomeCounter.vue';
 import HomeBlog from './HomeBlog.vue';
 export default {
     name: 'WebsiteInternoVueSliHomeMain',
-    data() {
-        return {};
-    },
+
     mounted() {
     },
     methods: {},
@@ -23,7 +21,10 @@ export default {
         HomeProject,
         HomeCounter,
         HomeBlog
-    }
+    },
+    data() {
+        return {};
+    },
 };
 </script>
 
