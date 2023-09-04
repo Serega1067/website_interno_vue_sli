@@ -8,6 +8,7 @@
   <BlogMain />
   <BlogDetailsMain />
   <Project />
+  <ProjectDetailsMain />
   <Footer />
 </template>
 
@@ -20,6 +21,7 @@ import BlogMain from './components/BlogMain.vue';
 import BlogDetailsMain from './components/BlogDetailsMain.vue';
 import Project from './components/Project.vue';
 import Footer from './components/Footer.vue';
+import ProjectDetailsMain from './components/ProjectDetailsMain.vue';
 
 export default {
   name: 'App',
@@ -31,7 +33,8 @@ export default {
     BlogMain,
     BlogDetailsMain,
     Project,
-    Footer
+    Footer,
+    ProjectDetailsMain
   }
 }
 </script>
