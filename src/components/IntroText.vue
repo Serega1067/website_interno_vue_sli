@@ -2,9 +2,9 @@
     <div>
         <h2 class="intro__heading">{{ text.title }}</h2>
         <div class="intro__subhead">
-            <a href="../index.html" class="intro__subhead_item">{{ text.subheadLeft }}</a>
+            <router-link :to="text.linkLeft" class="intro__subhead_item">{{ text.subheadLeft }}</router-link>
             <span class="intro__subhead_line">{{ text.subheadLine }}</span>
-            <a href="blog.html" class="intro__subhead_item">{{ text.subheadRight }}</a>
+            <router-link :to="text.linkRight" class="intro__subhead_item">{{ text.subheadRight }}</router-link>
         </div>
     </div>
 </template>

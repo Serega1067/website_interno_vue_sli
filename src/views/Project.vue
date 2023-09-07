@@ -60,8 +60,10 @@ export default {
                     id: "projectText",
                     title: "Our Project",
                     subheadLeft: "Home",
+                    linkLeft: "/",
                     subheadLine: " / ",
-                    subheadRight: "Project"
+                    subheadRight: "Project",
+                    linkRight: "/project"
                 }
             ],
             paginationData: [

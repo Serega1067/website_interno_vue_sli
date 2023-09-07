@@ -15,21 +15,23 @@
                     {{ text.subtitleRight }}
                 </p>
             </div>
-            <div v-if="sizeButton === 70" class="project-card__content_button">
-                <RoundButton70x70 />
-            </div>
-            <div v-else class="project-card__content_button">
-                <RoundButton52x52 />
-            </div>
+            <router-link to="/project-details">
+                <div v-if="sizeButton === 70" class="project-card__content_button">
+                    <RoundButton70x70 />
+                </div>
+                <div v-else class="project-card__content_button">
+                    <RoundButton52x52 />
+                </div>
+            </router-link>
         </div>
     </div>
 </template>
 
 <script>
-import IntroText from './IntroText.vue';
+import IntroText from '@/components/IntroText.vue';
 // import RoundButton from './RoundButton.vue';
-import RoundButton52x52 from './RoundButton52x52.vue';
-import RoundButton70x70 from './RoundButton70x70.vue';
+import RoundButton52x52 from '@/components/RoundButton52x52.vue';
+import RoundButton70x70 from '@/components/RoundButton70x70.vue';
 export default {
     name: 'ProjectCard',
     components: { IntroText, RoundButton52x52, RoundButton70x70 },

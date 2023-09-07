@@ -1,13 +1,13 @@
 <template>
-    <div class="project__buttons_item">{{ text.name }}</div>
-    <!-- <div class="project__buttons_item">
+    <!-- <div class="project__buttons_item">{{ text.name }}</div> -->
+    <div class="project__buttons_item">
         <slot />
-    </div> -->
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'Button',
+    name: 'ButtonError',
     props: {
         text: Object
     },

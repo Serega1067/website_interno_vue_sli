@@ -3,25 +3,28 @@
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
 
   <!-- <Head /> -->
-  <Header />
+  <!-- <Header />
   <HomeMain />
   <BlogMain />
   <BlogDetailsMain />
   <Project />
   <ProjectDetailsMain />
+  <Footer /> -->
+  <Header />
+  <router-view />
   <Footer />
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 // import Head from './components/Head.vue';
-import Header from './components/Header.vue';
-import HomeMain from './components/HomeMain.vue';
-import BlogMain from './components/BlogMain.vue';
-import BlogDetailsMain from './components/BlogDetailsMain.vue';
-import Project from './components/Project.vue';
-import Footer from './components/Footer.vue';
-import ProjectDetailsMain from './components/ProjectDetailsMain.vue';
+import Header from '@/components/Header.vue';
+// import HomeMain from '@/views/HomeMain.vue';
+// import BlogMain from '@/views/BlogMain.vue';
+// import BlogDetailsMain from '@/views/BlogDetailsMain.vue';
+// import Project from '@/views/Project.vue';
+import Footer from '@/components/Footer.vue';
+// import ProjectDetailsMain from '@/views/ProjectDetailsMain.vue';
 
 export default {
   name: 'App',
@@ -29,12 +32,12 @@ export default {
     // HelloWorld,
     // Head,
     Header,
-    HomeMain,
-    BlogMain,
-    BlogDetailsMain,
-    Project,
+    // HomeMain,
+    // BlogMain,
+    // BlogDetailsMain,
+    // Project,
     Footer,
-    ProjectDetailsMain
+    // ProjectDetailsMain
   }
 }
 </script>

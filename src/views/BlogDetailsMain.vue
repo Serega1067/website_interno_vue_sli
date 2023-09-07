@@ -4,8 +4,8 @@
 </template>
 
 <script>
-import BlogDetailsIntro from './BlogDetailsIntro.vue';
-import BlogDetailsBox from './BlogDetailsBox.vue';
+import BlogDetailsIntro from '@/components/BlogDetailsIntro.vue';
+import BlogDetailsBox from '@/components/BlogDetailsBox.vue';
 export default {
     name: 'WebsiteInternoVueSliBlogDetailsMain',
     components: {

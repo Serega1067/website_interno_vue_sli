@@ -22,8 +22,10 @@ export default {
                     id: "blogText",
                     title: "Articles & News",
                     subheadLeft: "Home",
+                    linkLeft: "/",
                     subheadLine: " / ",
                     subheadRight: "Blog",
+                    linkRight: "/blog"
                 },
             ],
         };

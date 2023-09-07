@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import store from './store'
+import router from './router'
+// import VueRouter from 'vue-router'
 // import Swiper from 'swiper'
 // import 'swiper/css'
 // import VueCarousel from 'vue-carousel'
@@ -10,4 +12,4 @@ import store from './store'
 // createApp.use(Vuex)
 // createApp(App).use(VueCarousel);
 
-createApp(App).use(store).mount('#app')
+createApp(App).use(store).use(router).mount('#app')

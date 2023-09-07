@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import BlogIntro from './BlogIntro.vue';
-import BlogPost from './BlogPost.vue';
-import Blog from './Blog.vue';
+import BlogIntro from '@/components/BlogIntro.vue';
+import BlogPost from '@/components/BlogPost.vue';
+import Blog from '@/components/Blog.vue';
 export default {
     name: 'WebsiteInternoVueSliBlogMain',
     components: {

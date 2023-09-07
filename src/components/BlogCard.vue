@@ -1,13 +1,13 @@
 <template>
     <div class="blog__item">
         <img :src="text.src" :alt="text.alt" :class="text.class">
-        <a href="#" class="blog__item_tag">{{ text.tag }}</a>
+        <router-link to="/blog-details" class="blog__item_tag">{{ text.tag }}</router-link>
         <p class="blog__item_text">
             {{ text.title }}
         </p>
         <div class="blog__item_content">
             <div class="blog__item_content-date">{{ text.date }}</div>
-            <a href="pages/blog_details.html" class="blog__item_content-elem">
+            <router-link to="/blog-details" class="blog__item_content-elem">
                 <!-- <RoundButton52x52 :text="fill" /> -->
                 <!-- <RoundButton52x52 :fill="'#F4F0EC'" /> -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="52" height="53" viewBox="0 0 52 53" fill="none">
@@ -15,7 +15,7 @@
                     <path d="M23.7714 32.9527L29.7143 26.267L23.7714 19.5813" stroke="#292F36" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-            </a>
+            </router-link>
         </div>
     </div>
 </template>
