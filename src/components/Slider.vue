@@ -47,7 +47,7 @@ export default {
         return {
             onSwiper,
             onSlideChange,
-            modules: [Navigation, Pagination, Scrollbar, A11y],
+            modules: [Navigation, Pagination, Scrollbar, A11y, Zoom],
         };
     },
 }
